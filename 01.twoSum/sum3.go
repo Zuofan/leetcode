@@ -9,7 +9,7 @@ func main() {
 
 	//sum3([]int{-1,0,1,2,-1,-4})
 	fmt.Println(threeSum([]int{0,0,0,0}))
-
+	fmt.Println(threeSum([]int{-1,0,1,2,-1,-4}))
 	//[-1,0,1,2,-1,-4,-2,-3,3,0,4]
 	//[[-4,0,4],[-4,1,3],[-3,-1,4],[-3,0,3],[-3,1,2],[-2,-1,3],[-2,0,2],[-1,-1,2],[-1,0,1]]
 
@@ -27,8 +27,40 @@ func main() {
 	//}
 }
 
-
 func threeSum(elems []int) [][]int {
+	sort.Ints(elems)
+	var results [][]int
+
+	for i:= 0; i < len(elems); i++ {
+		if i > 0 && elems[i] == elems[i-1] {
+			continue
+		}
+
+		m := len(elems) - 1
+		for j:= i+1; j < len(elems); j++ {
+
+			if j > i+1 && elems[j] == elems[j-1] {
+				continue
+			}
+
+			for ; j < m && elems[i] + elems[j] + elems[m] > 0; {
+				m--
+			}
+
+			if j == m {
+				break
+			}
+
+			if elems[i] + elems[j] + elems[m] == 0 {
+				results = append(results, []int{elems[i], elems[j], elems[m]})
+			}
+		}
+	}
+
+	return results
+}
+
+func threeSumv1(elems []int) [][]int {
 	sort.Ints(elems)
 	var results [][]int
 
