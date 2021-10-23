@@ -19,8 +19,25 @@ func TestStringsStrStr(t *testing.T) {
 }
 //!-test
 
-
 func strStr(haystack string, needle string) int {
+	r := -1
+	n1, n2 := len(haystack), len(needle)
+
+	if n2 == 0 {
+		r = 0
+	}
+
+	for i:=0; i < n1-n2; i++ {
+		if haystack[i:n2+i] == needle {
+			r = i
+			break
+		}
+	}
+
+	return r
+}
+
+func strStrV1(haystack string, needle string) int {
 	r := -1
 	n1, n2 := len(haystack), len(needle)
 
