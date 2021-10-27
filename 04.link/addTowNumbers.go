@@ -1,4 +1,4 @@
-package main
+package _04_link
 
 import (
 	"fmt"
