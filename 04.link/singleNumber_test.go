@@ -5,8 +5,37 @@ import (
 	"testing"
 )
 
+func singleNumberV2(nums []int) int {
+	r := 0
+
+	for _, elem := range nums {
+		r ^= elem
+	}
+
+	return r
+}
 
 func singleNumber(nums []int) int {
+	cache := make(map[int]int)
+
+	for _, elem := range nums {
+		if _, ok := cache[elem]; ok {
+			cache[elem] += 1
+		} else {
+			cache[elem] = 1
+		}
+	}
+
+	for _, elem := range nums {
+		if cache[elem] == 1 {
+			return elem
+		}
+	}
+
+	return 0
+}
+
+func singleNumberV1(nums []int) int {
 	sort.Ints(nums)
 	i := 0
 	for ; i + 1 < len(nums);  {
