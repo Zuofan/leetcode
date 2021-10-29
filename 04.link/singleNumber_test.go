@@ -18,8 +18,6 @@ func singleNumber(nums []int) int {
 	}
 
 	return nums[i]
-	//
-	//return r
 }
 
 
