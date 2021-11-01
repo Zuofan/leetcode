@@ -6,8 +6,6 @@ import (
 
 
 func singleNumberII(nums []int) int {
-
-
 	//r := int32(0)
 	//for i := 0; i < 32; i++ {
 	//	sum := int32(0)
@@ -37,6 +35,22 @@ func singleNumberII(nums []int) int {
 	}
 	return r
 }
+func singleNumberIIV2(nums []int) int {
+	cache := make(map[int]int)
+
+
+	for _, elem := range nums {
+		cache[elem]++
+	}
+
+	for elem, occ := range cache {
+		if occ == 1 {
+			return elem
+		}
+	}
+
+	return 0
+}
 
 //!+test
 func TestSingleNumberII(t *testing.T) {
@@ -45,8 +59,12 @@ func TestSingleNumberII(t *testing.T) {
 		want  int
 	}{
 		{[]int{2,2,1, 2}, 1},
+<<<<<<< HEAD
 		{[]int{4,1,2,1,2, 2,1}, 4},
 		{[]int{-2,-2,1,1,4,1,4,4,-4,-2}, -4},
+=======
+		{[]int{4,1,2,1,2,1,2}, 4},
+>>>>>>> c5350a35f2760ddaaea1181febf8911cb9d0c61c
 	}
 	for _, test := range tests {
 		if got := singleNumberII(test.input); got != test.want {
