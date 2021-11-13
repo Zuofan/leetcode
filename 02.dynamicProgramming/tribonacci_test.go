@@ -1,4 +1,4 @@
-package main
+package _02_dynamicprogramming
 /*
 title: 1137. N-th Tribonacci Number
 description:
@@ -32,9 +32,9 @@ The answer is guaranteed to fit within a 32-bit integer, ie. answer <= 2^31 - 1.
 
 
 */
-func main() {
-	tribonacci(5)
-}
+//func main() {
+//	tribonacci(5)
+//}
 
 func tribonacci(n int) int {
 	if n == 0 {

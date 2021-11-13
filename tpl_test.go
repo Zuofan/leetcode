@@ -23,8 +23,8 @@ func TestIsPalindrome(t *testing.T) {
 		{"kayak", true},
 	}
 	for _, test := range tests {
-		//if got := target(test.input); got != test.want {
-		//	t.Errorf("IsPalindrome(%q) = %v", test.input, got)
+		//if got := xxxx(test.input); got != test.want {
+		//	t.Errorf("xxx(%q) = %v want=%v", test.input, got, test.want)
 		//}
 	}
 }

@@ -1,10 +1,8 @@
-package main
+package _02_dynamicprogramming
 
-import "fmt"
-
-func main() {
-	fmt.Println(rob([]int{1,2,3,1}))
-}
+//func main() {
+//	fmt.Println(rob([]int{1,2,3,1}))
+//}
 
 func rob(costs []int) int {
 	if len(costs) == 1 {
