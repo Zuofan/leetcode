@@ -15,29 +15,17 @@ func singleNumberV2(nums []int) int {
 	return r
 }
 func singleNumber(nums []int) int {
-	r := 0
+	r := int32(0)
 	for i := 0; i < 32; i++ {
-		sum := 0
+		sum := int32(0)
 		for _, elem := range nums {
-			sum += (elem >> i) & 0x1
+			sum += (int32(elem) >> i) & 0x1
 		}
 
-		r += (sum % 2) << i
+		r |= (sum % 2) << i
 	}
 
-	return r
-
-	//r := int32(0)
-	//for i := 0; i < 32; i++ {
-	//	sum := int32(0)
-	//	for _, elem := range nums {
-	//		sum += (int32(elem) >> i) & 0x1
-	//	}
-	//
-	//	r |= (sum % 3) << i
-	//}
-	//
-	//return int(r)
+	return int(r)
 }
 
 func singleNumberVV1(nums []int) int {
